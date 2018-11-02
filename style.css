@@ -1,6 +1,29 @@
 .homepage {
     background-image: url("./images/cross-paddles.png");
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: 300px;
     background-position: center;
+}
+
+h1,
+.versus {
+    text-align: center;
+    margin-bottom: 30%;
+}
+
+/* .right-player {
+    position: relative;
+    top: -250%;
+    margin-left: -190%;
+    color: white;
+}
+
+.left-player {
+    position: relative;
+    top: -250%;
+    right: -10%;
+    color: black; */
+/* } */
+.player-scores {
+    text-align: center;
 }
