@@ -14,110 +14,145 @@
 
 <body>
     <div class="container">
-        <div class="navbar page-navbar">
-            <a class="site-name" href="#">Ping Pong</a>
-            <p class="page-name">placeholder</p>
-            <div class="login-register" href="#">
-                <a href="#" hidden>logout</a>
-                <a href="#">login</a>
-                <a href="#">register</a>
-            </div>
+        <div class="page-navbar">
+            <ul class="nav nav-tabs justify-content-between" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active show" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
+                        aria-controls="nav-home" aria-selected="true">Ping Pong</a>
+                </li>
+                <li>
+                    <p class="page-title">Page-title</p>
+                </li>
+                <li class="d-flex nav-item">
+                    <a class="nav-link" id="nav-login-tab" data-toggle="tab" href="#nav-login" role="tab" aria-controls="nav-login"
+                        aria-selected="false">Login</a>
+                    <a class="nav-link" id="nav-register-tab" data-toggle="tab" href="#nav-register" role="tab"
+                        aria-controls="nav-register" aria-selected="false">Register</a>
+                </li>
+            </ul>
         </div>
-        <div class="homepage">
-            <div class="match">
-                <h1>Match</h1>
-                <div class="versus-wrapper">
-                    <h3 class="versus">VS</h3>
-                </div>
-                <div class="player-names d-flex justify-content-around">
-                    <div class="left-player col-4">
-                        <p class="player-name">Player 1</p>
+        <div class="tab-content" id="nav-tabContent">
+            <div class="homepage tab-pane fade show active" id="nav-home" role="tabpanel">
+                <div class="match">
+                    <h1>Match</h1>
+                    <div class="versus-wrapper">
+                        <h3 class="versus">VS</h3>
                     </div>
-                    <div class="right-player col-4">
-                        <p class="player-name">Player 2</p>
+                    <div class="player-names d-flex justify-content-around">
+                        <div class="left-player col-4">
+                            <p class="player-name">Player 1</p>
+                        </div>
+                        <div class="right-player col-4">
+                            <p class="player-name">Player 2</p>
+                        </div>
                     </div>
-                </div>
-                <div class="player-scores">
-                    <p class="">
-                        <span class="left-player-score">1</span>
-                        <span class="score-seperator">:</span>
-                        <span class="right-player-score">1</span>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="user-homepage">
-            <h1>User Page</h1>
-            <div class="stats">
-                <h1>Welcome, UserName!</h1>
-                <h2>Stats</h2>
-                <div class="wins">
-                    <p id="wins">Wins: 2</p>
-                </div>
-                <div class="losses">
-                    <p id="losses">Losses: 1</p>
-                </div>
-                <div class="ratio">
-                    <p id="ratio">W/L Ratio: 2.0</p>
+                    <div class="player-scores">
+                        <p class="">
+                            <span class="left-player-score">1</span>
+                            <span class="score-seperator">:</span>
+                            <span class="right-player-score">1</span>
+                        </p>
+                    </div>
                 </div>
             </div>
-            <div class="match">
-                <h2>Match</h2>
-                <div class="versus-wrapper">
-                    <h3 class="versus">VS</h3>
-                </div>
-                <div class="player-names d-flex justify-content-between">
-                    <div class="left-player">
-                        <p class="player-name">Player 1</p>
+            <div class="user-homepage tab-pane" id="nav-user-home" role="tabpanel">
+                <h1>User Page</h1>
+                <div class="stats-new-game">
+                    <div class="stats">
+                        <h1>Welcome, UserName!</h1>
+                        <h2>Stats</h2>
+                        <div class="wins">
+                            <p id="wins">Wins: 2</p>
+                        </div>
+                        <div class="losses">
+                            <p id="losses">Losses: 1</p>
+                        </div>
+                        <div class="ratio">
+                            <p id="ratio">W/L Ratio: 2.0</p>
+                        </div>
                     </div>
-                    <div class="right-player">
-                        <p class="player-name">Player 2</p>
+                    <div class="new-game">
+                        <form>
+                            <fieldset>
+                                <legend class="referee">User3 is reffing</legend>
+
+                                <label>Player 1</label>
+                                <input type="text">
+                                <br>
+                                <label>Player 2</label>
+                                <input type="text">
+
+                                <fieldset name="ranked">
+                                    <legend>RANKED</legend>
+                                    <label>YES</label>
+                                    <input type="radio" name="ranked" checked>
+                                    <label>NO</label>
+                                    <input type="radio" name="ranked">
+                                </fieldset>
+                            </fieldset>
+                        </form>
                     </div>
                 </div>
-                <div class="player-scores">
-                    <p class="">
-                        <span class="left-player-score">1</span>
-                        <span class="score-seperator">:</span>
-                        <span class="right-player-score">1</span>
-                    </p>
+                <div class="match">
+                    <h2>Match</h2>
+                    <div class="versus-wrapper">
+                        <h3 class="versus">VS</h3>
+                    </div>
+                    <div class="player-names d-flex justify-content-between">
+                        <div class="left-player">
+                            <p class="player-name">Player 1</p>
+                        </div>
+                        <div class="right-player">
+                            <p class="player-name">Player 2</p>
+                        </div>
+                    </div>
+                    <div class="player-scores">
+                        <p class="">
+                            <span class="left-player-score">1</span>
+                            <span class="score-seperator">:</span>
+                            <span class="right-player-score">1</span>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="tab-pane fade" id="nav-login" role="tabpanel" aria-labelledby="nav-login-tab">
+                <div class="login tab-pane " id="login-page" role="tabpanel">
+                    <form method="POST" id="login-form">
+                        <fieldset class="border p-3">
+                            <label class="pt-2" for="username">Username</label>
+                            <input class="form-control" type="text" name="username">
+
+                            <label class="pt-2" for="password">Password:</label>
+                            <input class="form-control" type="password" name="password">
+                            <div class="submit-options">
+                                <button class="btn btn-success mt-3" type="submit">Log In</button>
+                                <p class="my-3"> or </p>
+                                <a href="#">Click Here to Register</a>
+                            </div>
+                        </fieldset>
+                    </form>
                 </div>
             </div>
+            <div class="tab-pane fade" id="nav-register" role="tabpanel" aria-labelledby="nav-register-tab">
+                <div class="registration tab-pane" id="registration-page" role="tabpanel">
+                    <form method="POST" id="register-form">
+                        <fieldset class="border p-3">
+                            <label class="pt-2" for="username">Username</label>
+                            <input class="form-control" type="text" name="username">
 
+                            <label class="pt-2" for="password">Password:</label>
+                            <input class="form-control" type="password" name="password">
+
+                            <label class="pt-2" for="password-repeat">Repeat Password:</label>
+                            <input class="form-control" type="password" name="password-repeat">
+
+                            <button class="btn btn-success mt-3" type="submit">Register</button>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
         </div>
-        <div class="registration">
-            <form method="POST" id="register-form">
-                <fieldset class="border p-3">
-                    <label class="pt-2" for="username">Username</label>
-                    <input class="form-control" type="text" name="username">
-
-                    <label class="pt-2" for="password">Password:</label>
-                    <input class="form-control" type="password" name="password">
-
-                    <label class="pt-2" for="password-repeat">Repeat Password:</label>
-                    <input class="form-control" type="password" name="password-repeat">
-
-                    <button class="btn btn-success mt-3" type="submit">Register</button>
-                </fieldset>
-            </form>
-        </div>
-        <div class="login">
-            <form method="POST" id="login-form">
-                <fieldset class="border p-3">
-                    <label class="pt-2" for="username">Username</label>
-                    <input class="form-control" type="text" name="username">
-
-                    <label class="pt-2" for="password">Password:</label>
-                    <input class="form-control" type="password" name="password">
-                    <div class="submit-options">
-                        <button class="btn btn-success mt-3" type="submit">Log In</button>
-                        <p class="my-3"> or </p>
-                        <a href="#">Click Here to Register</a>
-                    </div>
-                </fieldset>
-            </form>
-        </div>
-    </div>
-
     </div>
 
 
