@@ -1,4 +1,4 @@
-const PAGE_DATA = { token: null, users: null };
+var PAGE_DATA = { token: null, users: [] };
 
 function login(username, password) {
     fetch("https://bcca-pingpong.herokuapp.com/api/login/", {
@@ -6,13 +6,29 @@ function login(username, password) {
         headers: { "Content-Type": "application/json; charset=utf-8" },
         body: JSON.stringify({ username: username, password: password })
     })
-        .then(r => r.json())
+        .then(r => r.json()) // need to add some form of validation to inform the user
         .then(text =>
             verifyUser(
                 text.token,
                 "https://bcca-pingpong.herokuapp.com/api/users/"
             )
         );
+}
+function register(username, password) {
+    fetch("https://bcca-pingpong.herokuapp.com/api/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json; charset=utf-8" },
+        body: JSON.stringify({
+            username: username,
+            password: password,
+            password_repeat: password
+        })
+    })
+        .then(r => r.json())
+        .then(result => {
+            PAGE_DATA.token = result.token;
+            PAGE_DATA.users.push({ id: result.id, username: result.username });
+        });
 }
 function verifyUser(token, url) {
     if (token) {
@@ -28,8 +44,7 @@ function verifyUser(token, url) {
             .then(text => (PAGE_DATA.users = text));
     }
 }
-
-function addEvents() {
+function addLoginEvent() {
     loginForm = document.getElementById("login-form");
     usernameInput = loginForm["username"];
     passwordInput = loginForm["password"];
@@ -37,5 +52,17 @@ function addEvents() {
         ev.preventDefault();
         login(usernameInput.value, passwordInput.value);
     });
+}
+function addRegisterEvent() {
+    registerForm = document.getElementById("register-form");
+    usernameInput = registerForm["username"];
+    passwordInput = registerForm["password"];
+    registerForm.addEventListener("submit", ev => {
+        ev.preventDefault();
+        register(usernameInput.value, passwordInput.value);
+    });
+}
+function addEvents() {
+    addLoginEvent();
 }
 addEvents();
