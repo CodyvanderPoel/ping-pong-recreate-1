@@ -1,4 +1,4 @@
-var PAGE_DATA = { token: null, users: [] };
+var PAGE_DATA = {users: [] };
 
 function login(username, password) {
     fetch("https://bcca-pingpong.herokuapp.com/api/login/", {
