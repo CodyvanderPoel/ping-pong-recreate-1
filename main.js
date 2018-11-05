@@ -15,7 +15,7 @@ function login(username, password) {
         );
 }
 function register(username, password) {
-    fetch("https://bcca-pingpong.herokuapp.com/api/register", {
+    fetch("https://bcca-pingpong.herokuapp.com/api/register/", {
         method: "POST",
         headers: { "Content-Type": "application/json; charset=utf-8" },
         body: JSON.stringify({
@@ -64,5 +64,6 @@ function addRegisterEvent() {
 }
 function addEvents() {
     addLoginEvent();
+    addRegisterEvent();
 }
 addEvents();
