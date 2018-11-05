@@ -16,6 +16,12 @@ function login(username, password) {
         );
     var message = document.getElementById("logged-in");
     message.innerHTML = `You have been successfully logged in. Welcome back ${name}!`;
+    var greeting = document.getElementById("greeting");
+    greeting.innerHTML = `Welcome ${name}!`;
+    // var home = document.getElementById("nav-home");
+    // home.setAttribute("hidden" == "true");
+    // var user_home = document.getElementById("nav-user-home");
+    // user_home.removeAttribute("hidden");
 }
 function verifyUser(token, url) {
     if (token) {
