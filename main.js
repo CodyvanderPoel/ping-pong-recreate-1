@@ -1,6 +1,7 @@
-var PAGE_DATA = {users: [] };
+var PAGE_DATA = { users: [] };
 
 function login(username, password) {
+    var name = document.getElementById("username").value;
     fetch("https://bcca-pingpong.herokuapp.com/api/login/", {
         method: "POST",
         headers: { "Content-Type": "application/json; charset=utf-8" },
@@ -13,6 +14,8 @@ function login(username, password) {
                 "https://bcca-pingpong.herokuapp.com/api/users/"
             )
         );
+    var message = document.getElementById("logged-in");
+    message.innerHTML = `You have been successfully logged in. Welcome back ${name}!`;
 }
 function verifyUser(token, url) {
     if (token) {
