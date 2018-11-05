@@ -33,6 +33,9 @@
                 </li>
             </ul>
         </div>
+        <div>
+            <p class="username text-white" id="greeting"></p>
+        </div>
         <div class="tab-content" id="nav-tabContent">
             <div class="homepage tab-pane fade show active" id="nav-home" role="tabpanel">
                 <div class="match">
@@ -57,7 +60,7 @@
                     </div>
                 </div>
             </div>
-            <div class="user-homepage tab-pane" id="nav-user-home" role="tabpanel">
+            <div class="user-homepage tab-pane" id="nav-user-home" hidden role="tabpanel">
                 <h1>User Page</h1>
                 <div class="stats-new-game">
                     <div class="stats">
@@ -128,7 +131,7 @@
                             <label class="pt-2" for="password">Password:</label>
                             <input class="form-control text-primary" required type="password" name="password">
                             <div class="submit-options">
-                                <button class="btn btn-success mt-3" required type="submit">Login</button>
+                                <button class="btn btn-success mt-3" type="submit">Login</button>
                                 <p class="my-3"> or </p>
                                 <a href="#">Click Here to Register</a>
                             </div>
