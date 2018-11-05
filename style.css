@@ -11,19 +11,16 @@ h1,
     margin-bottom: 30%;
 }
 
-/* .right-player {
+.right-player {
     position: relative;
-    top: -250%;
-    margin-left: -190%;
-    color: white;
+    top: 250%;
+    margin-right: -25%;
 }
 
 .left-player {
     position: relative;
-    top: -250%;
-    right: -10%;
-    color: black; */
-/* } */
+    top: 250%;
+}
 .player-scores {
     text-align: center;
 }
