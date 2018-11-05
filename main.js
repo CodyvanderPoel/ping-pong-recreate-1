@@ -14,6 +14,20 @@ function login(username, password) {
             )
         );
 }
+function verifyUser(token, url) {
+    if (token) {
+        PAGE_DATA.token = token;
+        fetch(url, {
+            method: "GET",
+            headers: {
+                // "Content-Type": "application/json; charset=utf-8",
+                Authorization: "Token " + token
+            }
+        })
+            .then(r => r.json())
+            .then(text => (PAGE_DATA.users = text));
+    }
+}
 function register(username, password) {
     fetch("https://bcca-pingpong.herokuapp.com/api/register/", {
         method: "POST",
@@ -29,20 +43,14 @@ function register(username, password) {
             PAGE_DATA.token = result.token;
             PAGE_DATA.users.push({ id: result.id, username: result.username });
         });
+    var message = document.getElementById("registered");
+    message.innerHTML = "You have been successfully registered!";
 }
-function verifyUser(token, url) {
-    if (token) {
-        PAGE_DATA.token = token;
-        fetch(url, {
-            method: "GET",
-            headers: {
-                // "Content-Type": "application/json; charset=utf-8",
-                Authorization: "Token " + token
-            }
-        })
-            .then(r => r.json())
-            .then(text => (PAGE_DATA.users = text));
-    }
+function new_game() {
+    fetch("https://bcca-pingpong.herokuapp.com/api/new-game/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json; charset=utf-8" }
+    });
 }
 function addLoginEvent() {
     loginForm = document.getElementById("login-form");
