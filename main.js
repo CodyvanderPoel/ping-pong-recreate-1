@@ -43,6 +43,7 @@ function verifyUser(token, url) {
             .then(r => r.json())
             .then(text => (PAGE_DATA.users = text));
     }
+    window.display("You have been successfully logged in!");
 }
 function addLoginEvent() {
     loginForm = document.getElementById("login-form");
