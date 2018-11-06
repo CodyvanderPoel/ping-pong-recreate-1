@@ -13,14 +13,9 @@ h1,
 
 .right-player {
     position: relative;
-    top: 250%;
     margin-right: -25%;
 }
 
-.left-player {
-    position: relative;
-    top: 250%;
-}
 .player-scores {
     text-align: center;
 }
