@@ -15,9 +15,9 @@ function login(username, password) {
             )
         );
     var message = document.getElementById("logged-in");
-    message.innerHTML = `You have been successfully logged in. Welcome back ${name}!`;
+    message.innerText = `You have been successfully logged in. Welcome back ${name}!`;
     var greeting = document.getElementById("greeting");
-    greeting.innerHTML = `Welcome ${name}!`;
+    greeting.innerText = `Welcome ${name}!`;
     // var home = document.getElementById("nav-home");
     // home.setAttribute("hidden" == "true");
     // var user_home = document.getElementById("nav-user-home");
@@ -30,14 +30,14 @@ function guestGame() {
         .addEventListener("click", ++playerOnePoints, 1);
     var playerOneScore = (document.getElementById(
         "player-1-score"
-    ).innerHTML = playerOnePoints);
+    ).innerText = playerOnePoints);
     var playerTwoPoints = 0;
     var buttonTwo = document
         .getElementById("player-2-button")
         .addEventListener("click", ++playerTwoPoints, 1);
     var playerTwoScore = (document.getElementById(
         "player-2-score"
-    ).innerHTML = playerTwoPoints);
+    ).innerText = playerTwoPoints);
 }
 function verifyUser(token, url) {
     if (token) {
@@ -69,7 +69,7 @@ function register(username, password) {
             PAGE_DATA.users.push({ id: result.id, username: result.username });
         });
     var message = document.getElementById("registered");
-    message.innerHTML = "You have been successfully registered!";
+    message.innerText = "You have been successfully registered!";
 }
 function new_game() {
     fetch("https://bcca-pingpong.herokuapp.com/api/new-game/", {
