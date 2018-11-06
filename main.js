@@ -23,7 +23,7 @@ function login(username, password) {
     // var user_home = document.getElementById("nav-user-home");
     // user_home.removeAttribute("hidden");
 }
-function offlineGame() {
+function guestGame() {
     var playerOnePoints = 0;
     var buttonOne = document
         .getElementById("player-1-button")
