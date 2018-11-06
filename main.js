@@ -23,6 +23,22 @@ function login(username, password) {
     // var user_home = document.getElementById("nav-user-home");
     // user_home.removeAttribute("hidden");
 }
+function offlineGame() {
+    var playerOnePoints = 0;
+    var buttonOne = document
+        .getElementById("player-1-button")
+        .addEventListener("click", ++playerOnePoints, 1);
+    var playerOneScore = (document.getElementById(
+        "player-1-score"
+    ).innerHTML = playerOnePoints);
+    var playerTwoPoints = 0;
+    var buttonTwo = document
+        .getElementById("player-2-button")
+        .addEventListener("click", ++playerTwoPoints, 1);
+    var playerTwoScore = (document.getElementById(
+        "player-2-score"
+    ).innerHTML = playerTwoPoints);
+}
 function verifyUser(token, url) {
     if (token) {
         PAGE_DATA.token = token;
@@ -65,8 +81,8 @@ function addLoginEvent() {
     loginForm = document.getElementById("login-form");
     usernameInput = loginForm["username"];
     passwordInput = loginForm["password"];
-    loginForm.addEventListener("submit", ev => {
-        ev.preventDefault();
+    loginForm.addEventListener("submit", event => {
+        event.preventDefault();
         login(usernameInput.value, passwordInput.value);
     });
 }
@@ -74,13 +90,14 @@ function addRegisterEvent() {
     registerForm = document.getElementById("register-form");
     usernameInput = registerForm["username"];
     passwordInput = registerForm["password"];
-    registerForm.addEventListener("submit", ev => {
-        ev.preventDefault();
+    registerForm.addEventListener("submit", event => {
+        event.preventDefault();
         register(usernameInput.value, passwordInput.value);
     });
 }
 function addEvents() {
     addLoginEvent();
     addRegisterEvent();
+    offlineGame();
 }
 addEvents();
