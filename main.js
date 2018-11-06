@@ -28,16 +28,14 @@ function guestGame() {
     var buttonOne = document
         .getElementById("player-1-button")
         .addEventListener("click", ++playerOnePoints, 1);
-    var playerOneScore = (document.getElementById(
-        "player-1-score"
-    ).innerText = playerOnePoints);
+    var playerOneScore = document.getElementById("player-1-score");
+    playerOneScore.innerText = playerOnePoints;
     var playerTwoPoints = 0;
     var buttonTwo = document
         .getElementById("player-2-button")
         .addEventListener("click", ++playerTwoPoints, 1);
-    var playerTwoScore = (document.getElementById(
-        "player-2-score"
-    ).innerText = playerTwoPoints);
+    var playerTwoScore = document.getElementById("player-2-score");
+    playerTwoScore.innerText = playerTwoPoints;
 }
 function verifyUser(token, url) {
     if (token) {
