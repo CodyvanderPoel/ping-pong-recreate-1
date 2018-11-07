@@ -107,10 +107,17 @@ function addRegisterEvent() {
         register(usernameInput.value, passwordInput.value);
     });
 }
+function patchLoginPiece() {
+    var link = document.querySelector(".submit-options a");
+    link.addEventListener("click", () =>
+        $(".nav-tabs a[href='#nav-register']").tab("show")
+    );
+}
 function addEvents() {
     addLoginEvent();
     addRegisterEvent();
     guestGame();
+    patchLoginPiece();
 }
 addEvents();
 
