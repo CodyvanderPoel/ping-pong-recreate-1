@@ -24,18 +24,30 @@ function login(username, password) {
     // user_home.removeAttribute("hidden");
 }
 function guestGame() {
-    var playerOnePoints = 0;
-    var buttonOne = document
-        .getElementById("player-1-button")
-        .addEventListener("click", ++playerOnePoints, 1);
-    var playerOneScore = document.getElementById("player-1-score");
-    playerOneScore.innerText = playerOnePoints;
-    var playerTwoPoints = 0;
-    var buttonTwo = document
-        .getElementById("player-2-button")
-        .addEventListener("click", ++playerTwoPoints, 1);
-    var playerTwoScore = document.getElementById("player-2-score");
-    playerTwoScore.innerText = playerTwoPoints;
+    var clickers = document.querySelectorAll("div.click-me");
+    for (clicker of clickers) {
+        clicker.addEventListener("click", function(e) {
+            var target = e.target;
+            if (
+                !(
+                    target.id == "player-1-score" ||
+                    target.id == "player-2-score"
+                )
+            ) {
+                target = target.querySelector("span");
+            }
+            var val = Number(target.innerText);
+            val += 1;
+            target.innerText = val;
+            if (val == 10) {
+                target.style.color = "black";
+                var parent = target.parentNode;
+                parent.style.backgroundColor = "yellow";
+                // document.querySelector("div.container").innerHTML =
+                //     '<h1 style="color:red;">GAME OVER</h1>';
+            }
+        });
+    }
 }
 function verifyUser(token, url) {
     if (token) {
@@ -96,6 +108,14 @@ function addRegisterEvent() {
 function addEvents() {
     addLoginEvent();
     addRegisterEvent();
-    offlineGame();
+    guestGame();
 }
 addEvents();
+
+var divs = document.querySelectorAll("div.click-me");
+
+for (var div of divs) {
+    var d = Math.max(div.offsetHeight, div.offsetWidth) + "px";
+    div.style.width = d;
+    div.style.height = d;
+}
