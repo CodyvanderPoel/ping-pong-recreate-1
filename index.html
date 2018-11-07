@@ -40,26 +40,32 @@
         </div>
         <div class="tab-content" id="nav-tabContent">
             <div class="homepage tab-pane fade show active" id="nav-home" role="tabpanel">
-                <div class="match">
-                    <h1 class="text-white">Match</h1>
-                    <div class="versus-wrapper">
+                <div class="row">
+                    <h1 class="text-white">Guest Game</h1>
+                    <!-- <div class="versus-wrapper">
                         <h3 class="versus text-white">VS</h3>
-                    </div>
-                    <div class="player-names d-flex justify-content-around">
-                        <div class="left-player col-4">
-                            <p class="player-name text-white">Player 1</p>
+                    </div> -->
+                </div>
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="score-page col-lg-4 col-sm-12 d-flex flex-column">
+                        <div class="d-flex justify-content-around my-auto">
+                            <div>
+                                <p class="player-name text-white w-100 text-center">Player 1</p>
+                                <div class="click-me">
+                                    <span class="left-player-score really-big-text" id="player-1-score">0</span>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="player-name text-white w-100 text-center">Player 2</p>
+                                <div class="click-me">
+                                    <span class="right-player-score really-big-text" id="player-2-score">0</span>
+                                </div>
+                            </div>
+
                         </div>
-                        <div class="right-player col-4">
-                            <p class="player-name text-white">Player 2</p>
-                        </div>
                     </div>
-                    <div class="player-scores">
-                        <p class="text-white">
-                            <span class="left-player-score">1</span>
-                            <span class="score-seperator">:</span>
-                            <span class="right-player-score">1</span>
-                        </p>
-                    </div>
+                    <div class="col"></div>
                 </div>
             </div>
             <div class="user-homepage tab-pane" id="nav-user-home" hidden role="tabpanel">
@@ -131,9 +137,9 @@
                             <input class="form-control text-primary" required type="text" name="username" id="username">
 
                             <label class="pt-2" for="password">Password:</label>
-                            <input class="form-control text-primary" required type="password" name="password">
+                            <input class="form-control text-primary" required type="password" name="password" id="password">
                             <div class="submit-options">
-                                <button class="btn btn-success mt-3" type="submit">Login</button>
+                                <button class="btn btn-success mt-3" type="submit" id="login-button">Login</button>
                                 <p class="my-3"> or </p>
                                 <a href="#">Click Here to Register</a>
                             </div>
