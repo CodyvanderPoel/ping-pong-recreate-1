@@ -12,17 +12,15 @@ function login(username, password) {
         .then(text => {
             console.log(text);
             PAGE_DATA.current_user = text.token;
+            PAGE_DATA.name = username;
             console.log(PAGE_DATA.current_user);
             verifyUser(
                 PAGE_DATA.current_user,
+                PAGE_DATA.name,
                 "https://bcca-pingpong.herokuapp.com/api/users/"
             );
         });
 
-    // var message = document.getElementById("logged-in");
-    // message.innerText = `You have been successfully logged in. Welcome back ${name}!`;
-    // var greeting = document.getElementById("greeting");
-    // greeting.innerText = `Welcome ${name}!`;
     // var home = document.getElementById("nav-home");
     // home.setAttribute("hidden" == "true")
     // var user_home = document.getElementById("nav-user-home");
@@ -56,7 +54,7 @@ function guestGame() {
         });
     }
 }
-function verifyUser(token, url) {
+function verifyUser(token, name, url) {
     if (token !== undefined) {
         fetch(url, {
             method: "GET",
@@ -67,6 +65,10 @@ function verifyUser(token, url) {
         })
             .then(r => r.json())
             .then(text => (PAGE_DATA.users = text));
+        var message = document.getElementById("logged-in");
+        message.innerText = `You have been successfully logged in. Welcome back ${name}!`;
+        var greeting = document.getElementById("greeting");
+        greeting.innerText = `Welcome ${name}!`;
     } else {
         alert("Invalid username or password!");
     }
