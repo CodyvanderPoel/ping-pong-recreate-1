@@ -134,10 +134,12 @@
                     <form method="POST" id="login-form">
                         <fieldset class="border p-3">
                             <label class="pt-2" for="username">Username:</label>
-                            <input class="form-control text-primary" required type="text" name="username" id="username">
+                            <input class="form-control text-primary" autocomplete="off" required type="text" name="username"
+                                id="username">
 
                             <label class="pt-2" for="password">Password:</label>
-                            <input class="form-control text-primary" required type="password" name="password" id="password">
+                            <input class="form-control text-primary" autocomplete="off" required type="password" name="password"
+                                id="password">
                             <div class="submit-options">
                                 <button class="btn btn-success mt-3" type="submit" id="login-button">Login</button>
                                 <p class="my-3"> or </p>
@@ -153,13 +155,13 @@
                     <form method="POST" id="register-form">
                         <fieldset class="border p-3">
                             <label class="pt-2" for="username">Username:</label>
-                            <input class="form-control text-primary" required type="text" name="username">
+                            <input class="form-control text-primary" autocomplete="off" required type="text" name="username">
 
                             <label class="pt-2" for="password">Password:</label>
-                            <input class="form-control text-primary" required type="password" name="password">
+                            <input class="form-control text-primary" autocomplete="off" required type="password" name="password">
 
                             <label class="pt-2" for="password-repeat">Repeat Password:</label>
-                            <input class="form-control text-primary" required type="password" name="password-repeat">
+                            <input class="form-control text-primary" autocomplete="off" required type="password" name="password-repeat">
 
                             <button class="btn btn-success mt-3" type="submit">Register</button>
                         </fieldset>
