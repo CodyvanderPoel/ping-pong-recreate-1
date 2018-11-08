@@ -1,31 +1,43 @@
+"use strict";
+
 var PAGE_DATA = { users: [] };
 
 function login(username, password) {
-    var name = document.getElementById("username").value;
     fetch("https://bcca-pingpong.herokuapp.com/api/login/", {
         method: "POST",
         headers: { "Content-Type": "application/json; charset=utf-8" },
         body: JSON.stringify({ username: username, password: password })
     })
         .then(r => r.json()) // need to add some form of validation to inform the user
-        .then(text =>
+        .then(
+            text => {
+                console.log(text);
+                PAGE_DATA.current_user = text.token;
+                console.log(PAGE_DATA.current_user);
+            }
+            // verifyUser(
+            //     text.token,
+            //     "https://bcca-pingpong.herokuapp.com/api/users/"
+        )
+        .then(
             verifyUser(
-                text.token,
+                PAGE_DATA.current_user,
                 "https://bcca-pingpong.herokuapp.com/api/users/"
             )
         );
-    var message = document.getElementById("logged-in");
-    message.innerText = `You have been successfully logged in. Welcome back ${name}!`;
-    var greeting = document.getElementById("greeting");
-    greeting.innerText = `Welcome ${name}!`;
+
+    // var message = document.getElementById("logged-in");
+    // message.innerText = `You have been successfully logged in. Welcome back ${name}!`;
+    // var greeting = document.getElementById("greeting");
+    // greeting.innerText = `Welcome ${name}!`;
     // var home = document.getElementById("nav-home");
-    // home.setAttribute("hidden" == "true");
+    // home.setAttribute("hidden" == "true")
     // var user_home = document.getElementById("nav-user-home");
     // user_home.removeAttribute("hidden");
 }
 function guestGame() {
     var clickers = document.querySelectorAll("div.click-me");
-    for (clicker of clickers) {
+    for (var clicker of clickers) {
         clicker.addEventListener("click", function(e) {
             var target = e.target;
             if (
@@ -90,18 +102,18 @@ function new_game() {
     });
 }
 function addLoginEvent() {
-    loginForm = document.getElementById("login-form");
-    usernameInput = loginForm["username"];
-    passwordInput = loginForm["password"];
+    var loginForm = document.getElementById("login-form");
+    var usernameInput = loginForm["username"];
+    var passwordInput = loginForm["password"];
     loginForm.addEventListener("submit", event => {
         event.preventDefault();
         login(usernameInput.value, passwordInput.value);
     });
 }
 function addRegisterEvent() {
-    registerForm = document.getElementById("register-form");
-    usernameInput = registerForm["username"];
-    passwordInput = registerForm["password"];
+    var registerForm = document.getElementById("register-form");
+    var usernameInput = registerForm["username"];
+    var passwordInput = registerForm["password"];
     registerForm.addEventListener("submit", event => {
         event.preventDefault();
         register(usernameInput.value, passwordInput.value);
