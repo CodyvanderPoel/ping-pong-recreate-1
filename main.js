@@ -69,6 +69,8 @@ function verifyUser(token, name, url) {
         message.innerText = `You have been successfully logged in. Welcome back ${name}!`;
         var greeting = document.getElementById("greeting");
         greeting.innerText = `Welcome ${name}!`;
+        var disabledLogin = document.getElementById("login-button");
+        disabledLogin.disabled = true;
     } else {
         alert("Invalid username or password!");
     }
