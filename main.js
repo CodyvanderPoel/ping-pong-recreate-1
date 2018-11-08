@@ -71,6 +71,9 @@ function verifyUser(token, name, url) {
         greeting.innerText = `Welcome ${name}!`;
         var disabledLogin = document.getElementById("login-button");
         disabledLogin.disabled = true;
+        var userHome = document.getElementById("nav-home-tab");
+        userHome .setAttribute("href", "#nav-user-home");
+        $(".nav-tabs li:first-child a").tab("show");
     } else {
         alert("Invalid username or password!");
     }
