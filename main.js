@@ -57,8 +57,8 @@ function guestGame() {
                 parent.style.backgroundColor = "yellow";
                 var p = parent.parentNode.querySelector("p").innerText;
                 document.querySelector("div.container").innerHTML =
-                    '<h1 style="color:red;">GAME OVER</h1><br>' +
-                    `<h1 style="color:red;">${p} WINS!`;
+                    '<div class="text-center"><h1 style="color:red;">GAME OVER</h1><br>' +
+                    `<h1 style="color:red;">${p} WINS!</h1></div>`;
             }
         });
     }
