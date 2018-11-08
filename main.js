@@ -9,22 +9,15 @@ function login(username, password) {
         body: JSON.stringify({ username: username, password: password })
     })
         .then(r => r.json()) // need to add some form of validation to inform the user
-        .then(
-            text => {
-                console.log(text);
-                PAGE_DATA.current_user = text.token;
-                console.log(PAGE_DATA.current_user);
-            }
-            // verifyUser(
-            //     text.token,
-            //     "https://bcca-pingpong.herokuapp.com/api/users/"
-        )
-        .then(
+        .then(text => {
+            console.log(text);
+            PAGE_DATA.current_user = text.token;
+            console.log(PAGE_DATA.current_user);
             verifyUser(
                 PAGE_DATA.current_user,
                 "https://bcca-pingpong.herokuapp.com/api/users/"
-            )
-        );
+            );
+        });
 
     // var message = document.getElementById("logged-in");
     // message.innerText = `You have been successfully logged in. Welcome back ${name}!`;
@@ -64,8 +57,7 @@ function guestGame() {
     }
 }
 function verifyUser(token, url) {
-    if (token) {
-        PAGE_DATA.token = token;
+    if (token !== undefined) {
         fetch(url, {
             method: "GET",
             headers: {
@@ -75,6 +67,8 @@ function verifyUser(token, url) {
         })
             .then(r => r.json())
             .then(text => (PAGE_DATA.users = text));
+    } else {
+        alert("Invalid username or password!");
     }
 }
 function register(username, password) {
