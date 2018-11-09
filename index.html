@@ -69,21 +69,26 @@
                 </div>
             </div>
             <div class="user-homepage tab-pane text-white" id="nav-user-home" role="tabpanel">
-                <h1>User Page</h1>
                 <div class="new-game">
                     <form class="text-white">
                         <fieldset>
                             <legend class="referee">You are reffing!</legend>
 
-                            <label>Select Player 1!</label>
+                            <label>Select Player 1's ID!</label>
                             <br>
-                            <input class="m-1 form-control text-primary" type="text">
+                            <input required class="m-1 form-control text-primary" type="text">
                             <br>
-                            <label>Select Player 2!</label>
+                            <label>Select Player 2's ID!</label>
                             <br>
-                            <input class="m-1 form-control text-primary" type="text">
+                            <input required class="m-1 form-control text-primary" type="text">
                             <br>
                             <button id="start-button" class="m-2 btn btn-success">CONFIRM</button>
+                        </fieldset>
+                        <fieldset class="border border-light m-1" id="roster-container">
+                            <legend>
+                                <h3>Roster</h3>
+                            </legend>
+                            <h4 class="m-1" id="roster"></h4>
                         </fieldset>
                     </form>
                 </div>
