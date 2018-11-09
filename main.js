@@ -20,11 +20,6 @@ function login(username, password) {
                 "https://bcca-pingpong.herokuapp.com/api/users/"
             );
         });
-
-    // var home = document.getElementById("nav-home");
-    // home.setAttribute("hidden" == "true")
-    // var user_home = document.getElementById("nav-user-home");
-    // user_home.removeAttribute("hidden");
 }
 function guestGame() {
     var clickers = document.querySelectorAll("div.click-me");
@@ -59,12 +54,15 @@ function verifyUser(token, name, url) {
         fetch(url, {
             method: "GET",
             headers: {
-                // "Content-Type": "application/json; charset=utf-8",
+                "Content-Type": "application/json; charset=utf-8",
                 Authorization: "Token " + token
             }
         })
             .then(r => r.json())
-            .then(text => (PAGE_DATA.users = text));
+            .then(text => {
+                PAGE_DATA.users = text;
+                getUsers();
+            });
         var message = document.getElementById("logged-in");
         message.innerText = `You have been successfully logged in. Welcome back ${name}!`;
         var greeting = document.getElementById("greeting");
@@ -72,7 +70,7 @@ function verifyUser(token, name, url) {
         var disabledLogin = document.getElementById("login-button");
         disabledLogin.disabled = true;
         var userHome = document.getElementById("nav-home-tab");
-        userHome .setAttribute("href", "#nav-user-home");
+        userHome.setAttribute("href", "#nav-user-home");
         $(".nav-tabs li:first-child a").tab("show");
     } else {
         alert("Invalid username or password!");
@@ -125,6 +123,13 @@ function patchLoginPiece() {
     link.addEventListener("click", () =>
         $(".nav-tabs a[href='#nav-register']").tab("show")
     );
+}
+function getUsers() {
+    PAGE_DATA.users.forEach(user => {
+        var roster = document.getElementById("roster");
+        console.log(user);
+        roster.innerText = `ID: ${user.id} NAME: ${user.username}`;
+    });
 }
 function addEvents() {
     addLoginEvent();
